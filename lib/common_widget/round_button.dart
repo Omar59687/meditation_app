@@ -4,15 +4,16 @@ import 'package:meditation_app/common/color_extension.dart';
 enum RoundButtonType { primary, secondary }
 
 class RoundButton extends StatelessWidget {
-  const RoundButton(
-      {super.key,
-      required this.title,
-      this.onPressed,
-      this.type = RoundButtonType.primary});
-
   final String title;
-  final VoidCallback? onPressed;
   final RoundButtonType type;
+  final VoidCallback onPressed;
+
+  const RoundButton({
+    super.key,
+    required this.title,
+    this.type = RoundButtonType.primary,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +21,13 @@ class RoundButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: MaterialButton(
         onPressed: onPressed,
-        minWidth: double.infinity,
+        minWidth: double.maxFinite,
         elevation: 0,
         color:
-            type == RoundButtonType.primary ? TColor.primary : TColor.secondary,
+            type == RoundButtonType.primary ? TColor.primary : TColor.tertiary,
         height: 60,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-          side: BorderSide.none,
-        ),
+            side: BorderSide.none, borderRadius: BorderRadius.circular(30)),
         child: Text(
           title,
           style: TextStyle(

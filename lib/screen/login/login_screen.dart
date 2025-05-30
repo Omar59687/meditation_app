@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:meditation_app/common/color_extension.dart';
 import 'package:meditation_app/common_widget/round_button.dart';
 import 'package:meditation_app/common_widget/round_text_field.dart';
+import 'package:meditation_app/screen/home/choose_topic_screen.dart';
+import 'package:meditation_app/screen/home/welcome_screen.dart';
 import 'package:meditation_app/screen/login/sign_up_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -150,7 +152,9 @@ class _StartupScreenState extends State<LoginScreen> {
               const SizedBox(height: 20),
               RoundButton(
                 title: 'LOG IN',
-                onPressed: () {},
+                onPressed: () {
+                  context.push(const WelcomeScreen());
+                },
               ),
               const SizedBox(height: 10),
               TextButton(
