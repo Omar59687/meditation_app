@@ -4,6 +4,7 @@ import 'package:meditation_app/common/color_extension.dart';
 import 'package:meditation_app/common_widget/circle_button.dart';
 import 'package:meditation_app/common_widget/round_button.dart';
 import 'package:meditation_app/screen/home/home_screen.dart';
+import 'package:meditation_app/screen/main_tabview/main_tabview_screen.dart';
 
 class RemindersScreen extends StatefulWidget {
   const RemindersScreen({super.key});
@@ -118,14 +119,14 @@ class _RemindersScreenState extends State<RemindersScreen> {
             RoundButton(
                 title: "SAVE",
                 onPressed: () {
-                  context.push(const HomeScreen());
+                  context.push(const MainTabviewScreen());
                 }),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
                     onPressed: () {
-                      context.push(const HomeScreen());
+                      context.push(const MainTabviewScreen());
                     },
                     child: Text(
                       "NO THANKS",
