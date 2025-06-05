@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:meditation_app/common/color_extension.dart';
+import 'package:meditation_app/screen/home/course_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -83,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Expanded(
                             child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            context.push(const CourseDetailScreen());
+                          },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: Container(
@@ -184,7 +187,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Expanded(
                             child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            context.push(const CourseDetailScreen());
+                          },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(15),
                             child: Container(
