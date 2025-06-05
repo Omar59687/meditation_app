@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:meditation_app/common/color_extension.dart';
 import 'package:meditation_app/common_widget/tab_button.dart';
 import 'package:meditation_app/screen/home/home_screen.dart';
+import 'package:meditation_app/screen/meditate/meditate_screen.dart';
+import 'package:meditation_app/screen/music/music_screen.dart';
+import 'package:meditation_app/screen/sleep/sleep_screen.dart';
 
 class MainTabviewScreen extends StatefulWidget {
   const MainTabviewScreen({super.key});
@@ -30,9 +34,9 @@ class _MainTabviewScreenState extends State<MainTabviewScreen>
     return Scaffold(
       body: TabBarView(controller: controller, children: [
         const HomeScreen(),
-        Container(),
-        Container(),
-        Container(),
+        const SleepScreen(),
+        const MeditateScreen(),
+        const MusicScreen(),
         Container(
           color: Colors.red,
         )
@@ -40,7 +44,8 @@ class _MainTabviewScreenState extends State<MainTabviewScreen>
       bottomNavigationBar: Container(
           padding: const EdgeInsets.only(top: 15, bottom: 8),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color:
+                selectTab == 3 || selectTab == 1 ? TColor.sleep : Colors.white,
             boxShadow: const [
               BoxShadow(
                   color: Colors.black12, blurRadius: 4, offset: Offset(0, -4))

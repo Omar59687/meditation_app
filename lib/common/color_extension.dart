@@ -4,6 +4,8 @@ class TColor {
   static Color get primary => const Color(0xff8E97FD);
   static Color get secondary => const Color(0xff3F414E);
   static Color get tertiary => const Color(0xffEBEAEC);
+  static Color get sleep => const Color(0xff03174C);
+  static Color get sleepText => const Color(0xffE6E7F2);
 
   static Color get primaryText => const Color(0xff3F414E);
   static Color get primaryTextW => const Color(0xffF6F1FB);
@@ -12,21 +14,17 @@ class TColor {
 }
 
 extension AppContext on BuildContext {
-  Size get size => MediaQuery.of(this).size;
+  Size get size => MediaQuery.sizeOf(this);
   double get width => size.width;
   double get height => size.height;
 
-  Future push(Widget widget) {
+  Future push(Widget widget) async {
     return Navigator.push(
-      this,
-      MaterialPageRoute(builder: (context) => widget),
-    );
+        this, MaterialPageRoute(builder: (context) => widget));
   }
 
   void pop() async {
-    if (Navigator.canPop(this)) {
-      Navigator.pop(this);
-    }
+    return Navigator.pop(this);
   }
 }
 
